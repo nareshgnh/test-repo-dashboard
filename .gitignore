@@ -1,0 +1,11 @@
+# Python bytecode
+__pycache__/
+*.pyc
+
+# Virtual environment
+myenv/
+venv/
+
+# Logs and databases
+*.log
+*.sqlite3
