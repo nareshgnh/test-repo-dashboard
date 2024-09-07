@@ -1,0 +1,73 @@
+{
+  "created": 1725670273.6718569,
+  "duration": 0.7711737155914307,
+  "exitcode": 1,
+  "root": "/Users/nareshgavvala/Desktop/Naresh",
+  "environment": {},
+  "summary": { "passed": 1, "failed": 1, "total": , "collected": 2 },
+  "collectors": [
+    {
+      "nodeid": "",
+      "outcome": "passed",
+      "result": [{ "nodeid": ".", "type": "Dir" }]
+    },
+    {
+      "nodeid": "test_api.py",
+      "outcome": "passed",
+      "result": [
+        {
+          "nodeid": "test_api.py::test_api_success",
+          "type": "Function",
+          "lineno": 6
+        },
+        {
+          "nodeid": "test_api.py::test_api_failure",
+          "type": "Function",
+          "lineno": 18
+        }
+      ]
+    },
+    {
+      "nodeid": ".",
+      "outcome": "passed",
+      "result": [{ "nodeid": "test_api.py", "type": "Module" }]
+    }
+  ],
+  "tests": [
+    {
+      "nodeid": "test_api.py::test_api_success",
+      "lineno": 6,
+      "outcome": "passed",
+      "keywords": ["test_api_success", "test_api.py", "Naresh", ""],
+      "setup": { "duration": 0.0001334590051556006, "outcome": "passed" },
+      "call": {
+        "duration": 0.24691033401177265,
+        "outcome": "passed",
+        "stdout": "<Response [200]>\n"
+      },
+      "teardown": { "duration": 0.00027258400223217905, "outcome": "passed" }
+    },
+    {
+      "nodeid": "test_api.py::test_api_failure",
+      "lineno": 18,
+      "outcome": "failed",
+      "keywords": ["test_api_failure", "test_api.py", "Naresh", ""],
+      "setup": { "duration": 0.0002188749931519851, "outcome": "passed" },
+      "call": {
+        "duration": 0.41729487499105744,
+        "outcome": "failed",
+        "crash": {
+          "path": "/Users/nareshgavvala/Desktop/Naresh/test_api.py",
+          "lineno": 26,
+          "message": "AssertionError: Expected status code 404 but got 404\nassert 404 == 200\n +  where 404 = <Response [404]>.status_code"
+        },
+        "traceback": [
+          { "path": "test_api.py", "lineno": 26, "message": "AssertionError" }
+        ],
+        "stdout": "<Response [404]>\n",
+        "longrepr": "def test_api_failure():\n        \"\"\"\n        Test for a failed API call.\n        This simulates an API call that returns a 404 error.\n        \"\"\"\n        response = requests.get(f\"{BASE_URL}/posts/invalid\")  # Fetching a non-existing resource\n        print(response)\n>       assert response.status_code == 200, f\"Expected status code 404 but got {response.status_code}\"\nE       AssertionError: Expected status code 404 but got 404\nE       assert 404 == 200\nE        +  where 404 = <Response [404]>.status_code\n\ntest_api.py:26: AssertionError"
+      },
+      "teardown": { "duration": 0.00014829100109636784, "outcome": "passed" }
+    }
+  ]
+}
